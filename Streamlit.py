@@ -41,15 +41,11 @@ plt.xlim(1990,2030)
 plt.title('Consumo '+tipo+' (Mtep)\n'+region)
 st.pyplot(figura)
 
-import base64
-def crear_link(fig, archivo_nombre,etiqueta):
-    object_to_download = plt.savefig('Imágen.png',dpi=300)
-    b64 = base64.b64encode(object_to_download.encode()).decode()
+descargar_grafico=st.button('Descargar gráfico')
+if descargar_grafico==True:
+    imagen=plt.savefig('Imágen.png',dpi=300)
+    b64 = base64.b64encode(imagen.encode()).decode()
     return f'<a href="data:image/png;base64,{b64}" download="{archivo_nombre}">{etiqueta}</a>'
-
-link = crear_link(figura, 'Descarga.png','Descargar imágen')
-st.markdown(link, unsafe_allow_html=True)
-
 
 st.table(round(mostrar,2))
 
