@@ -21,14 +21,7 @@ st.write('Objetivo consumo final 2020: {:.0f}'.format(mostrar['Objetivo final 20
 st.write('Objetivo consumo final 2030: {:.0f}'.format(mostrar['Objetivo final 2030'].mean()))
 st.write('Objetivo consumo final 2020: {:.0f}'.format(mostrar['Objetivo primario 2020'].mean()))
 st.write('Objetivo consumo final 2030: {:.0f}'.format(mostrar['Objetivo primario 2030'].mean()))
-mostrar.drop(columns=['Objetivo final 2020','Objetivo final 2030','Objetivo primario 2020','Objetivo primario 2030'],inplace=True)
-st.table(round(mostrar,2))
-
-descargar_tabla=st.button('Descargar tabla')
-if descargar_tabla==True:
-    st.write('Descargando tabla...')
-    mostrar.to_excel('Tabla descagarda.xlsx')
-    st.write('Tabla descargada')
+# mostrar.drop(columns=['Objetivo final 2020','Objetivo final 2030','Objetivo primario 2020','Objetivo primario 2030'],inplace=True)
 
 tipo=st.selectbox('Indicador',['final','primario'])
 
@@ -51,4 +44,12 @@ if descargar_grafico==True:
     plt.tight_layout()
     plt.savefig(region+'_'+tipo+'.png',dpi=300)
     st.write('Imagen descargada')
+
+
+st.table(round(mostrar,2))
+descargar_tabla=st.button('Descargar tabla')
+if descargar_tabla==True:
+    st.write('Descargando tabla...')
+    mostrar.to_excel('Tabla descagarda.xlsx')
+    st.write('Tabla descargada')
 
