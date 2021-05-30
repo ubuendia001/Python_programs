@@ -41,6 +41,7 @@ plt.xlim(1990,2030)
 plt.title('Consumo '+tipo+' (Mtep)\n'+region)
 st.pyplot(figura)
 
+import base64
 descargar_grafico=st.button('Descargar gráfico')
 if descargar_grafico==True:
     imagen=plt.savefig('Imágen.png',dpi=300)
