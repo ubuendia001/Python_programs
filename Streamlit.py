@@ -10,9 +10,8 @@ indices=['Indice MIBGAS [EUR/MWh]', 'Indice MIBGAS-LNG [EUR/MWh]',
 
 indice_select=st.selectbox('Índices',indices)
 
-figura,ax=plt.subplots()
-ax.plot(df[indice_select])
-plt.show()
+figura=plt.figure()
+plt.plot(df[indice_select])
 
-# st.table(df)
+st.table(df)
 st.pyplot(fig=figura)
