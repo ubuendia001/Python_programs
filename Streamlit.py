@@ -7,7 +7,6 @@ def coger_datos():
     datos=pd.read_excel('Datos.xlsx')
     return datos
 df=coger_datos()
-# columnas=['valor', 'Año', 'País', 'Tipo']
 paises=df['País'].unique()
 
 st.title('OBJETIVOS DE EFIENCIA ENERGÉTICA DE LA UE')
@@ -18,12 +17,17 @@ mostrar['Objetivo final 2020']=mostrar['Consumo final']-mostrar['Consumo final d
 mostrar['Objetivo final 2030']=mostrar['Consumo final']-mostrar['Consumo final distancia 2030']
 mostrar['Objetivo primario 2020']=mostrar['Consumo primario']-mostrar['Consumo primario distancia 2020']
 mostrar['Objetivo primario 2030']=mostrar['Consumo primario']-mostrar['Consumo primario distancia 2030']
+st.write('Objetivo consumo final 2020: {:.0f}'.format(mostrar['Objetivo final 2020'].mean()))
+st.write('Objetivo consumo final 2030: {:.0f}'.format(mostrar['Objetivo final 2030'].mean()))
+st.write('Objetivo consumo final 2020: {:.0f}'.format(mostrar['Objetivo primario 2020'].mean()))
+st.write('Objetivo consumo final 2030: {:.0f}'.format(mostrar['Objetivo primario 2030'].mean()))
+mostrar.drop(columns=['Objetivo final 2020','Objetivo final 2030','Objetivo primario 2020','Objetivo primario 2030'],inplace=True)
 st.table(round(mostrar,2))
 
 descargar_tabla=st.button('Descargar tabla')
 if descargar_tabla==True:
     st.write('Descargando tabla...')
-    tabla.to_excel('Tabla descagarda.xlsx')
+    mostrar.to_excel('Tabla descagarda.xlsx')
     st.write('Tabla descargada')
 
 tipo=st.selectbox('Indicador',['final','primario'])
