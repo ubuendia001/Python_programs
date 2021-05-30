@@ -41,7 +41,7 @@ plt.xlim(1990,2030)
 plt.title('Consumo '+tipo+' (Mtep)\n'+region)
 st.pyplot(figura)
 
-st.table(round(mostrar,2))
+st.table(round(mostrar,0))
 
 import base64
 def crear_link(df, archivo_nombre,etiqueta):
