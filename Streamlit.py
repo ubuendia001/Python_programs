@@ -56,6 +56,6 @@ def crear_link(df, archivo_nombre,etiqueta):
     b64 = base64.b64encode(object_to_download.encode()).decode()
     return f'<a href="data:file/txt;base64,{b64}" download="{archivo_nombre}">{etiqueta}</a>'
 
-link = crear_link(agr, variable_select_1+'_'+variable_select_2+'.csv','Descargar csv')
+link = crear_link(mostrar, 'Descarga.csv','Descargar csv')
 st.markdown(link, unsafe_allow_html=True)
 
