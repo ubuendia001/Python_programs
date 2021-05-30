@@ -42,12 +42,10 @@ plt.title('Consumo '+tipo+' (Mtep)\n'+region)
 st.pyplot(figura)
 
 import base64
-descargar_grafico=st.button('Descargar gráfico')
-if descargar_grafico==True:
-    imagen=plt.savefig('Imágen.png',dpi=300)
-    b64 = base64.b64encode(imagen.encode()).decode()
-    link=f'<a href="data:image/png;base64,{b64}" download="{archivo_nombre}">{etiqueta}</a>'
-    st.markdown(link, unsafe_allow_html=True) 
+imagen=plt.savefig('Imágen.png',dpi=300)
+b64 = base64.b64encode(imagen.encode()).decode()
+link=f'<a href="data:image/png;base64,{b64}" download="{archivo_nombre}">{etiqueta}</a>'
+st.markdown(link, unsafe_allow_html=True) 
 
 st.table(round(mostrar,2))
 
