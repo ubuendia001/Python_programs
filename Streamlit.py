@@ -12,6 +12,8 @@ paises=df['País'].unique()
 st.title('OBJETIVOS DE EFIENCIA ENERGÉTICA DE LA UE')
 st.write("The European Union (EU) has committed itself to a 20 % reduction of energy consumption by the year 2020 compared to baseline[1] projections. This objective is also known as the 20 % energy efficiency target. In other words, the EU has committed[2] itself to have a primary energy consumption of no more than 1 483 Mtoe and a final energy consumption of no more than 1 086 Mtoe in 2020. For 2030 the binding target is at least 32.5 % reduction. This translates into a primary energy consumption of no more than 1 273 Mtoe and a final energy consumption of no more than 956 Mtoe in 2030. With the withdrawal of the United Kingdom, the Union's energy consumption figures for 2020 and 2030 needs to be adjusted to the situation of 27 Member States. A technical adaptation of targets results in a primary energy consumption of no more than 1 312 Mtoe in 2020 and 1 128 Mtoe in 2030 and a final energy consumption of no more than 959 Mtoe in 2020 and 846 Mtoe in 2030.")
 region=st.selectbox('Región',paises)
+tipo=st.selectbox('Indicador',['final','primario'])
+
 mostrar=df[df['País']==region].pivot_table(index='Año',columns='Tipo',values='valor',aggfunc='sum')
 mostrar['Objetivo final 2020']=mostrar['Consumo final']-mostrar['Consumo final distancia 2020']
 mostrar['Objetivo final 2030']=mostrar['Consumo final']-mostrar['Consumo final distancia 2030']
@@ -23,7 +25,6 @@ st.write('Objetivo consumo final 2020: {:.0f}'.format(mostrar['Objetivo primario
 st.write('Objetivo consumo final 2030: {:.0f}'.format(mostrar['Objetivo primario 2030'].mean()))
 # mostrar.drop(columns=['Objetivo final 2020','Objetivo final 2030','Objetivo primario 2020','Objetivo primario 2030'],inplace=True)
 
-tipo=st.selectbox('Indicador',['final','primario'])
 
 x=mostrar.index.values
 y=mostrar['Consumo '+tipo].values
