@@ -20,11 +20,11 @@ mostrar['Objetivo final 2030']=mostrar['Consumo final']-mostrar['Consumo final d
 mostrar['Objetivo primario 2020']=mostrar['Consumo primario']-mostrar['Consumo primario distancia 2020']
 mostrar['Objetivo primario 2030']=mostrar['Consumo primario']-mostrar['Consumo primario distancia 2030']
 if tipo=='final':
-    st.write('Objetivo consumo final 2020: {:.0f}'.format(mostrar['Objetivo final 2020'].mean()))
-    st.write('Objetivo consumo final 2030: {:.0f}'.format(mostrar['Objetivo final 2030'].mean()))
+    st.write('Objetivo consumo final 2020: {:.0f} Mtep'.format(mostrar['Objetivo final 2020'].mean()))
+    st.write('Objetivo consumo final 2030: {:.0f} Mtep'.format(mostrar['Objetivo final 2030'].mean()))
 elif tipo=='primario':
-    st.write('Objetivo consumo primario 2020: {:.0f}'.format(mostrar['Objetivo primario 2020'].mean()))
-    st.write('Objetivo consumo primario 2030: {:.0f}'.format(mostrar['Objetivo primario 2030'].mean()))
+    st.write('Objetivo consumo primario 2020: {:.0f} Mtep'.format(mostrar['Objetivo primario 2020'].mean()))
+    st.write('Objetivo consumo primario 2030: {:.0f} Mtep'.format(mostrar['Objetivo primario 2030'].mean()))
 # mostrar.drop(columns=['Objetivo final 2020','Objetivo final 2030','Objetivo primario 2020','Objetivo primario 2030'],inplace=True)
 
 
