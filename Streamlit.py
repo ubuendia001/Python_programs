@@ -43,7 +43,7 @@ st.pyplot(figura)
 
 import base64
 b64 = base64.b64encode(figura.encode()).decode()
-link=f'<a href="data:image/png;base64,{b64}" download="{archivo_nombre}">{etiqueta}</a>'
+link=f'<a href="data:image/png;base64,{imagebase64}" download="{archivo_nombre}">{etiqueta}</a>'
 st.markdown(link, unsafe_allow_html=True) 
 
 st.table(round(mostrar,2))
